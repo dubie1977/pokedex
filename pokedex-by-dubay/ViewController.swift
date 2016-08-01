@@ -7,19 +7,50 @@
 //
 
 import UIKit
+import AVFoundation
 
-class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
     
     @IBOutlet weak var collection: UICollectionView!
+    @IBOutlet weak var backgrounMusicBtn: UIButton!
+    @IBOutlet weak var searchBar: UISearchBar!
 
     var pokemon = [Pokemon]()
+    var pokemonSelected: Int?
+    var musicPlayer: AVAudioPlayer!
+    var playAudo = false
+    var inSearchMode = false
+    var pokemonFiltered = [Pokemon]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         collection.delegate = self
         collection.dataSource = self
+        searchBar.delegate = self
+        searchBar.returnKeyType = UIReturnKeyType.Done
+        
+        musicPlayer = initAuido("music", fileType: "mp3")
+        playBackground()
         
         parsePokemonCSV()
+    }
+    
+    func initAuido(fileName: String, fileType: String) -> AVAudioPlayer{
+        let path = NSBundle.mainBundle().pathForResource(fileName, ofType: fileType)!
+        
+        
+        do{
+            let player = try AVAudioPlayer(contentsOfURL: NSURL(string: path)!)
+            player.prepareToPlay()
+            player.numberOfLoops = -1
+            return player
+            
+        } catch let err as NSError{
+            print(err.debugDescription)
+            return AVAudioPlayer()
+            
+        }
+        
     }
     
     func parsePokemonCSV(){
@@ -45,7 +76,14 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCellWithReuseIdentifier("PokeCell", forIndexPath: indexPath) as? PokeCell{
             
-            let poke = pokemon[indexPath.row]
+            let poke: Pokemon
+            
+            if inSearchMode{
+                poke = pokemonFiltered[indexPath.row]
+            } else{
+                poke = pokemon[indexPath.row]
+            }
+            
             cell.configureCell(poke)
             return cell
             
@@ -58,10 +96,40 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
+        
+        if indexPath.row == pokemonSelected{
+            return
+        }
+        
+        if let cell = collectionView.cellForItemAtIndexPath(indexPath){
+            print("selected \((cell as? PokeCell)!.pokemon.name )")
+            cell.sizeThatFits(CGSizeMake(300, 300))
+            
+            var cells = [NSIndexPath]()
+            if let oldSelection = pokemonSelected{
+                cells.append(NSIndexPath(forItem: oldSelection, inSection: 0))
+            }
+            
+            pokemonSelected = indexPath.row
+            cells.append(indexPath)
+            //let ipo = NSIndexPath(forItem: 1, inSection: 0)
+            
+            //collectionView.reloadData()
+            collectionView.reloadItemsAtIndexPaths(cells)
+           
+            
+        }
+        
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 718
+        
+        if inSearchMode{
+            return pokemonFiltered.count - 1
+        } else {
+            return pokemon.count - 1
+        }
+        
     }
 
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
@@ -74,12 +142,60 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         let large = (indexPath.row / set) % 2 == 0
         
-        if(large){
-            return CGSizeMake(250, 200)
+        
+        if let selected = pokemonSelected where selected==indexPath.row{
+            return CGSizeMake(200, 200)
+        
+        }else if(large){
+           // return CGSizeMake(250, 200)
         }
         
-        return CGSizeMake(105, 105)
+        return CGSizeMake(100, 100)
     }
+    
+    @IBAction func musicBtnPressed(sender: UIButton) {
+        if playAudo{
+            playAudo = false
+            
+            
+        } else {
+            playAudo = true
+        }
+        
+        playBackground()
+    }
+    
+    func playBackground(){
+        if playAudo{
+            musicPlayer.play()
+            backgrounMusicBtn.alpha = 1
+        } else {
+            musicPlayer.pause()
+            musicPlayer.currentTime = 0
+            backgrounMusicBtn.alpha = BUTTON_OPACITY        }
+    }
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        view.endEditing(true)
+    }
+    
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        if searchBar.text == nil || searchBar.text == "" {
+            inSearchMode = false
+            pokemonSelected = nil
+            view.endEditing(true)
+            collection.reloadData()
+        } else{
+            inSearchMode = true
+            let lower = searchBar.text!.lowercaseString
+            pokemonFiltered = pokemon.filter({$0.name.rangeOfString(lower) != nil})
+            pokemonSelected = nil
+            collection.reloadData()
+        }
+        
+    }
+    
     
 }
 
