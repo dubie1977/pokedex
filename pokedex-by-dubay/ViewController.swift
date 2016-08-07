@@ -120,9 +120,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             
             pokemonSelected = indexPath.row
             cells.append(indexPath)
-            //let ipo = NSIndexPath(forItem: 1, inSection: 0)
-            
-            //collectionView.reloadData()
             collectionView.reloadItemsAtIndexPaths(cells)
            
             

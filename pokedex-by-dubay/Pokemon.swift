@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class Pokemon {
     private var _name: String!
@@ -20,9 +21,14 @@ class Pokemon {
         return _pokedexId
     }
     
+    var image: UIImage{
+        return UIImage(named: "\(_pokedexId)")!
+    }
+    
     init(name: String, pokedexId: Int){
         _pokedexId = pokedexId
         _name = name
     }
+    
     
 }
