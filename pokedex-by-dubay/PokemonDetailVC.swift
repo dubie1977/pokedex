@@ -30,11 +30,41 @@ class PokemonDetailVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        pokemonName.text = pokemon.name
+        pokemonName.text = pokemon.name.capitalizedString
         pokemonImage.image = pokemon.image
+        pokedexID.text = "\(pokemon.pokedexId)"
+        pokemonEvo1.image = pokemon.image
+        pokemonEvo2.hidden = true
+        discription.text = ""
+        
+        pokemon.downloadPokemonDetails { //() -> () in
+            
+            self.updateUI()
+            
+                    }
 
         print("Sender was \(pokemon.name)")
         // Do any additional setup after loading the view.
+    }
+    
+    func updateUI(){
+        
+        type.text = pokemon.type
+        defence.text = pokemon.defense
+        height.text = pokemon.height
+        weight.text = pokemon.weight
+        attack.text = pokemon.attack
+        discription.text = pokemon.discription
+        
+        if let nextEv = UIImage(named: "\(pokemon.nextEvolutionId)") {
+            pokemonEvo2.image = nextEv
+            pokemonEvo2.hidden = false
+        } else {
+            pokemonEvo2.hidden = true
+        }
+        
+        
+        
     }
     
     override func viewDidAppear(animated: Bool) {

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "pokedex-by-dubay/Pokemon.swift"
+            timestampString = "492247045.015344"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "168"
+            endingLineNumber = "168"
+            landmarkName = "downloadPokemonDetails(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "pokedex-by-dubay/Pokemon.swift"
+            timestampString = "492247045.015344"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "161"
+            endingLineNumber = "161"
+            landmarkName = "downloadPokemonDetails(_:)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "pokedex_by_dubay.Pokemon.(downloadPokemonDetails (() -&gt; ()) -&gt; ()).(closure #1)"
+                  moduleName = "pokedex-by-dubay"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dubie1977/Documents/Code%20Projects/IOS/Class/pokedex-by-dubay/pokedex-by-dubay/Pokemon.swift"
+                  timestampString = "492242379.398797"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "110"
+                  endingLineNumber = "110"
+                  offsetFromSymbolStart = "6728">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "pokedex_by_dubay.Pokemon.(downloadPokemonDetails (() -&gt; ()) -&gt; ()).(closure #1)"
+                  moduleName = "pokedex-by-dubay"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dubie1977/Documents/Code%20Projects/IOS/Class/pokedex-by-dubay/pokedex-by-dubay/Pokemon.swift"
+                  timestampString = "492242379.398908"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "110"
+                  endingLineNumber = "110"
+                  offsetFromSymbolStart = "7022">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

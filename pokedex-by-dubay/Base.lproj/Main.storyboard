@@ -172,7 +172,7 @@
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Charzard" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4UR-6p-SvI">
                                         <rect key="frame" x="189" y="0.0" width="223" height="55"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                                         <color key="textColor" red="1" green="0.99006434180000003" blue="0.95605938609999996" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -256,17 +256,22 @@
                                         <color key="tintColor" red="1" green="0.072615822129999993" blue="0.22595789099999999" alpha="1" colorSpace="calibratedRGB"/>
                                     </segmentedControl>
                                     <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="sXj-2D-Jxa">
-                                        <rect key="frame" x="0.0" y="35" width="560" height="218"/>
+                                        <rect key="frame" x="0.0" y="35" width="560" height="201"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="300" translatesAutoresizingMaskIntoConstraints="NO" id="bMR-LF-jIT">
-                                                <rect key="frame" x="0.0" y="0.0" width="130" height="218"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="130" height="201"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="130" id="JrL-ML-qYS"/>
+                                                    <constraint firstAttribute="height" constant="131" id="JrL-ML-qYS"/>
                                                     <constraint firstAttribute="width" constant="130" id="x9C-T4-6wl"/>
                                                 </constraints>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="JrL-ML-qYS"/>
+                                                    </mask>
+                                                </variation>
                                             </imageView>
                                             <label autoresizesSubviews="NO" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" lineBreakMode="wordWrap" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fCP-Sa-smc">
-                                                <rect key="frame" x="135" y="0.0" width="425" height="218"/>
+                                                <rect key="frame" x="135" y="0.0" width="425" height="201"/>
                                                 <string key="text">Baton Pass causes the user to switch out for another Pokémon, passing any stat changes to the Pokémon that switches in. These effects are passed:</string>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                 <nil key="highlightedColor"/>
@@ -274,7 +279,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="78i-Sv-Efw">
-                                        <rect key="frame" x="0.0" y="258" width="560" height="20"/>
+                                        <rect key="frame" x="0.0" y="241" width="560" height="20"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bwk-af-pSZ">
                                                 <rect key="frame" x="0.0" y="0.0" width="133" height="20"/>
@@ -306,7 +311,7 @@
                                         </constraints>
                                     </stackView>
                                     <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9fF-wa-NT7">
-                                        <rect key="frame" x="0.0" y="283" width="560" height="33"/>
+                                        <rect key="frame" x="0.0" y="266" width="560" height="50"/>
                                         <color key="backgroundColor" red="0.88373963787085508" green="0.88373963787085508" blue="0.88373963787085508" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="T2P-sY-8sg"/>

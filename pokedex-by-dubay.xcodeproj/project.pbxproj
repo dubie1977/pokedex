@@ -117,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				8C6C05921D44908A0049670B /* csv.swift */,
+				8C3312781D4FA9AC00F9BF06 /* Constants.swift */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -150,7 +151,6 @@
 				8CFB151B1D42934A000DF156 /* Assets.xcassets */,
 				8CFB15201D42934A000DF156 /* Info.plist */,
 				8CFB15181D42934A000DF156 /* pokedex_by_dubay.xcdatamodeld */,
-				8C3312781D4FA9AC00F9BF06 /* Constants.swift */,
 			);
 			path = "pokedex-by-dubay";
 			sourceTree = "<group>";
